@@ -1,40 +1,41 @@
-#include "GamblingGame.h"   // GamblingGame Å¬·¡½ºÀÇ Çì´õ ÆÄÀÏ Æ÷ÇÔ
-#include <iostream> // ÀÔÃâ·Â ½ºÆ®¸²À» À§ÇÑ ¶óÀÌºê·¯¸® Æ÷ÇÔ
-#include <string>   // ¹®ÀÚ¿­ Ã³¸®¸¦ À§ÇÑ ¶óÀÌºê·¯¸® Æ÷ÇÔ
+//GamblingGame.cpp
+#include "GamblingGame.h"   // GamblingGame í´ë˜ìŠ¤ì˜ í—¤ë” íŒŒì¼ í¬í•¨
+#include <iostream> // ì…ì¶œë ¥ ìŠ¤íŠ¸ë¦¼ì„ ìœ„í•œ ë¼ì´ë¸ŒëŸ¬ë¦¬ í¬í•¨
+#include <string>   // ë¬¸ìì—´ ì²˜ë¦¬ë¥¼ ìœ„í•œ ë¼ì´ë¸ŒëŸ¬ë¦¬ í¬í•¨
 
-// GamblingGame »ı¼ºÀÚ
+// GamblingGame ìƒì„±ì
 GamblingGame::GamblingGame(Player* p1, Player* p2) : player1(p1), player2(p2) {
-    // player1°ú player2 ¸â¹ö º¯¼ö¸¦ ÁÖ¾îÁø Player Æ÷ÀÎÅÍ·Î ÃÊ±âÈ­
+    // player1ê³¼ player2 ë©¤ë²„ ë³€ìˆ˜ë¥¼ ì£¼ì–´ì§„ Player í¬ì¸í„°ë¡œ ì´ˆê¸°í™”
 }
 
-// °ÔÀÓ ½ÃÀÛ ¸Ş¼­µå
+// ê²Œì„ ì‹œì‘ ë©”ì„œë“œ
 void GamblingGame::startGame() {
-    while (true) {  // ¹«ÇÑ ·çÇÁ ½ÃÀÛ
-        if (playTurn(player1)) break;   // player1ÀÇ ÅÏ ÁøÇà, ½Â¸® ½Ã ·çÇÁ Á¾·á
-        if (playTurn(player2)) break;   // player2ÀÇ ÅÏ ÁøÇà, ½Â¸® ½Ã ·çÇÁ Á¾·á
+    while (true) {  // ë¬´í•œ ë£¨í”„ ì‹œì‘
+        if (playTurn(player1)) break;   // player1ì˜ í„´ ì§„í–‰, ìŠ¹ë¦¬ ì‹œ ë£¨í”„ ì¢…ë£Œ
+        if (playTurn(player2)) break;   // player2ì˜ í„´ ì§„í–‰, ìŠ¹ë¦¬ ì‹œ ë£¨í”„ ì¢…ë£Œ
     }
 }
 
-// °¢ ÇÃ·¹ÀÌ¾îÀÇ ÅÏÀ» ÁøÇàÇÏ´Â ¸Ş¼­µå
+// ê° í”Œë ˆì´ì–´ì˜ í„´ì„ ì§„í–‰í•˜ëŠ” ë©”ì„œë“œ
 bool GamblingGame::playTurn(Player* player) {
-    std::string enterKey;   // »ç¿ëÀÚÀÇ ÀÔ·ÂÀ» ÀúÀåÇÒ ¹®ÀÚ¿­ º¯¼ö ¼±¾ğ
-    std::cout << player->name << ": <Enter> Å° ÀÔ·Â >>";   // ÇöÀç ÅÏÀÇ ÇÃ·¹ÀÌ¾î ÀÌ¸§°ú ÀÔ·Â ¸Ş½ÃÁö Ãâ·Â
-    std::getline(std::cin, enterKey);   // »ç¿ëÀÚ·ÎºÎÅÍ ÀÔ·ÂÀ» ¹Ş°í enterKey¿¡ ÀúÀå - ¿£ÅÍÅ° ÀÔ·Â ´ë±â
+    std::string enterKey;   // ì‚¬ìš©ìì˜ ì…ë ¥ì„ ì €ì¥í•  ë¬¸ìì—´ ë³€ìˆ˜ ì„ ì–¸
+    std::cout << player->name << ": <Enter> í‚¤ ì…ë ¥ >>";   // í˜„ì¬ í„´ì˜ í”Œë ˆì´ì–´ ì´ë¦„ê³¼ ì…ë ¥ ë©”ì‹œì§€ ì¶œë ¥
+    std::getline(std::cin, enterKey);   // ì‚¬ìš©ìë¡œë¶€í„° ì…ë ¥ì„ ë°›ê³  enterKeyì— ì €ì¥ - ì—”í„°í‚¤ ì…ë ¥ ëŒ€ê¸°
 
-    // ÇÃ·¹ÀÌ¾îÀÇ ·£´ı ¼ıÀÚ »ı¼º
-    int num1 = player->getRandomNumber();   // Ã¹ ¹øÂ° ·£´ı ¼ıÀÚ »ı¼º
-    int num2 = player->getRandomNumber();   // µÎ ¹øÂ° ·£´ı ¼ıÀÚ »ı¼º
-    int num3 = player->getRandomNumber();   // ¼¼ ¹øÂ° ·£´ı ¼ıÀÚ »ı¼º
+    // í”Œë ˆì´ì–´ì˜ ëœë¤ ìˆ«ì ìƒì„±
+    int num1 = player->getRandomNumber();   // ì²« ë²ˆì§¸ ëœë¤ ìˆ«ì ìƒì„±
+    int num2 = player->getRandomNumber();   // ë‘ ë²ˆì§¸ ëœë¤ ìˆ«ì ìƒì„±
+    int num3 = player->getRandomNumber();   // ì„¸ ë²ˆì§¸ ëœë¤ ìˆ«ì ìƒì„±
 
-    std::cout << num1 << "  " << num2 << "  " << num3 << std::endl; // »ı¼ºµÈ ¼ıÀÚ Ãâ·Â
+    std::cout << num1 << "  " << num2 << "  " << num3 << std::endl; // ìƒì„±ëœ ìˆ«ì ì¶œë ¥
 
-    // ½Â¸® Á¶°Ç È®ÀÎ
-    if (num1 == num2 && num2 == num3) { // ¼¼ ¼ıÀÚ°¡ ¸ğµÎ °°Àº °æ¿ì
-        std::cout << player->name << "ÀÌ(°¡) ½Â¸®Çß½À´Ï´Ù!" << std::endl;   // ½Â¸® ¸Ş½ÃÁö Ãâ·Â
-        return true;    // °ÔÀÓ Á¾·á¸¦ ³ªÅ¸³»´Â true ¹İÈ¯
+    // ìŠ¹ë¦¬ ì¡°ê±´ í™•ì¸
+    if (num1 == num2 && num2 == num3) { // ì„¸ ìˆ«ìê°€ ëª¨ë‘ ê°™ì€ ê²½ìš°
+        std::cout << player->name << "ì´(ê°€) ìŠ¹ë¦¬í–ˆìŠµë‹ˆë‹¤!" << std::endl;   // ìŠ¹ë¦¬ ë©”ì‹œì§€ ì¶œë ¥
+        return true;    // ê²Œì„ ì¢…ë£Œë¥¼ ë‚˜íƒ€ë‚´ëŠ” true ë°˜í™˜
     }
-    else {  // ¼¼ ¼ıÀÚ°¡ °°Áö ¾ÊÀº °æ¿ì
-        std::cout << "¾Æ½±±º¿ä!" << std::endl;  // ÆĞ¹è ¸Ş½ÃÁö Ãâ·Â
-        return false;   // ´ÙÀ½ ÅÏÀ¸·Î ³Ñ¾î°¨À» ³ªÅ¸³»´Â false ¹İÈ¯
+    else {  // ì„¸ ìˆ«ìê°€ ê°™ì§€ ì•Šì€ ê²½ìš°
+        std::cout << "ì•„ì‰½êµ°ìš”!" << std::endl;  // íŒ¨ë°° ë©”ì‹œì§€ ì¶œë ¥
+        return false;   // ë‹¤ìŒ í„´ìœ¼ë¡œ ë„˜ì–´ê°ì„ ë‚˜íƒ€ë‚´ëŠ” false ë°˜í™˜
     }
 }
