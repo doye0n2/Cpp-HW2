@@ -1,16 +1,17 @@
-#ifndef GAMBLINGGAME_H  // Çì´õ ÆÄÀÏ Áßº¹ Æ÷ÇÔ ¹æÁö
+//GamblingGame.h
+#ifndef GAMBLINGGAME_H  // í—¤ë” íŒŒì¼ ì¤‘ë³µ í¬í•¨ ë°©ì§€
 #define GAMBLINGGAME_H
 
-#include "Player.h" // Player.h Çì´õ ÆÄÀÏÀ» Æ÷ÇÔÇÏ¿© Player Å¬·¡½º Á¤ÀÇ¸¦ »ç¿ë
+#include "Player.h" // Player.h í—¤ë” íŒŒì¼ì„ í¬í•¨í•˜ì—¬ Player í´ë˜ìŠ¤ ì •ì˜ë¥¼ ì‚¬ìš©
 
-class GamblingGame { // GamblingGame Å¬·¡½º Á¤ÀÇ
-public: // ¾Æ·¡ÀÇ ¸â¹ö´Â public Á¢±Ù ÁöÁ¤ÀÚ, ¿ÜºÎ¿¡¼­ Á¢±Ù °¡´É
-    Player* player1; // Ã¹ ¹øÂ° ÇÃ·¹ÀÌ¾î¸¦ °¡¸®Å°´Â Æ÷ÀÎÅÍ
-    Player* player2; // µÎ ¹øÂ° ÇÃ·¹ÀÌ¾î¸¦ °¡¸®Å°´Â Æ÷ÀÎÅÍ
+class GamblingGame { // GamblingGame í´ë˜ìŠ¤ ì •ì˜
+public: // ì•„ë˜ì˜ ë©¤ë²„ëŠ” public ì ‘ê·¼ ì§€ì •ì, ì™¸ë¶€ì—ì„œ ì ‘ê·¼ ê°€ëŠ¥
+    Player* player1; // ì²« ë²ˆì§¸ í”Œë ˆì´ì–´ë¥¼ ê°€ë¦¬í‚¤ëŠ” í¬ì¸í„°
+    Player* player2; // ë‘ ë²ˆì§¸ í”Œë ˆì´ì–´ë¥¼ ê°€ë¦¬í‚¤ëŠ” í¬ì¸í„°
 
-    GamblingGame(Player* p1, Player* p2); // »ı¼ºÀÚ ¼±¾ğ - µÎ ÇÃ·¹ÀÌ¾î¸¦ ÃÊ±âÈ­ÇÏ´Â ¸Ş¼­µå
-    void startGame(); // °ÔÀÓÀ» ½ÃÀÛÇÏ°í ÁøÇàÇÏ´Â ¸Ş¼­µå ¼±¾ğ - ¹İÈ¯ °ª ¾øÀ½
-    bool playTurn(Player* player); // ÁÖ¾îÁø ÇÃ·¹ÀÌ¾î°¡ ÅÏÀ» ÁøÇàÇÏ´Â ¸Ş¼­µå ¼±¾ğ - ½Â¸® ¿©ºÎ¸¦ bool·Î ¹İÈ¯
+    GamblingGame(Player* p1, Player* p2); // ìƒì„±ì ì„ ì–¸ - ë‘ í”Œë ˆì´ì–´ë¥¼ ì´ˆê¸°í™”í•˜ëŠ” ë©”ì„œë“œ
+    void startGame(); // ê²Œì„ì„ ì‹œì‘í•˜ê³  ì§„í–‰í•˜ëŠ” ë©”ì„œë“œ ì„ ì–¸ - ë°˜í™˜ ê°’ ì—†ìŒ
+    bool playTurn(Player* player); // ì£¼ì–´ì§„ í”Œë ˆì´ì–´ê°€ í„´ì„ ì§„í–‰í•˜ëŠ” ë©”ì„œë“œ ì„ ì–¸ - ìŠ¹ë¦¬ ì—¬ë¶€ë¥¼ boolë¡œ ë°˜í™˜
 };
 
-#endif // GAMBLINGGAME_H // Çì´õ ÆÄÀÏ ³¡
+#endif // GAMBLINGGAME_H // í—¤ë” íŒŒì¼ ë
